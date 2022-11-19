@@ -13,16 +13,16 @@ public class PacienteService implements IPacienteService {
 
     @Override
     public List<Paciente> listadoPaciente() {
-        return Arrays.asList(new Paciente("Amaya","Javier","yo@gmail.com", new Date()),
-                new Paciente("Perez","Ramon", "yo@gmail.com", new Date()),
-                new Paciente("Gonzalez","Teresa", "tere@gmail.com", new Date()));
+        return Arrays.asList(new Paciente("Amaya","Javier", "2942234","yo@gmail.com", new Date()),
+                new Paciente("Perez","Ramon","2942234","yo@gmail.com", new Date()),
+                new Paciente("Gonzalez","Teresa","2942234", "tere@gmail.com", new Date()));
     }
 
     @Override
     public Paciente buscarPaciente(String email) {
-        List<Paciente> pacienteList = Arrays.asList(new Paciente("Amaya","Javier","yo@gmail.com", new Date()),
-                new Paciente("Perez","Ramon", "yo@gmail.com", new Date()),
-                new Paciente("Gonzalez","Teresa", "tere@gmail.com", new Date()));
+        List<Paciente> pacienteList = Arrays.asList(new Paciente("Amaya","Javier","2942234","yo@gmail.com", new Date()),
+                new Paciente("Perez","Ramon","2942234", "yo@gmail.com", new Date()),
+                new Paciente("Gonzalez","Teresa","2942234", "tere@gmail.com", new Date()));
 
         for (Paciente item: pacienteList) {
             if(item.getEmail().equals(email)){
