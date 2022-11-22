@@ -54,5 +54,10 @@ public class OdontologoService implements IOdontologoService {
         return "Se elimino el Odontologo con id: " + id;
     }
 
+    @Override
+    public Odontologo actualizar(Odontologo odontologo) {
+        return odontologoDao.actualizar(odontologo);
+    }
+
 
 }

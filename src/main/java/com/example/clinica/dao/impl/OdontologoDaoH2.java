@@ -14,7 +14,8 @@ public class OdontologoDaoH2 implements IDao<Odontologo> {
     private final static String DB_URL = "jdbc:h2:~/test;INIT=RUNSCRIPT FROM '/Users/rafael/Desktop/clinicaOdontologica/src/main/resources/createOdontologo.sql'";
     private final static String DB_USER ="sa";
     private final static String DB_PASSWORD = "";
-//
+
+
     public OdontologoDaoH2() {
     }
 
@@ -46,7 +47,6 @@ public class OdontologoDaoH2 implements IDao<Odontologo> {
         }
         return odontologo;
     }
-
     @Override
     public void eliminar(int id) {
         Connection connection = null;
@@ -70,7 +70,6 @@ public class OdontologoDaoH2 implements IDao<Odontologo> {
             throw new RuntimeException(e);
         }
     }
-
     @Override
     public Odontologo buscar(int id) {
         Connection connection = null;
@@ -102,7 +101,6 @@ public class OdontologoDaoH2 implements IDao<Odontologo> {
         }
         return odontologo;
     }
-
     @Override
     public List<Odontologo> buscarTodos() {
         Connection connection = null;
@@ -121,22 +119,47 @@ public class OdontologoDaoH2 implements IDao<Odontologo> {
 
             //4 Obtener resultados
             while (result.next()) {
-
                 int idOdontologo = result.getInt("id");
                 String marca = result.getString("apellido");
                 String modelo = result.getString("nombre");
                 String matricula = result.getString("matricula");
                 Odontologo odontologo = new Odontologo(idOdontologo,marca,modelo,matricula);
-
                 odontologos.add(odontologo);
-
             }
-
             preparedStatement.close();
         } catch (SQLException | ClassNotFoundException throwables) {
             throwables.printStackTrace();
         }
 
         return odontologos;
+    }
+
+    @Override
+    public Odontologo actualizar(Odontologo odontologo) {
+        Connection connection = null;
+        PreparedStatement preparedStatement = null;
+        try {
+            //1 Levantar el driver y Conectarnos
+            Class.forName(DB_JDBC_DRIVER);
+            connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+
+            //2 Crear una sentencia UPDATE ODONTOLOGO SET APELLIDO='Hi' WHERE ID=12;
+            preparedStatement = connection.prepareStatement("UPDATE ODONTOLOGO SET APELLIDO=?, NOMBRE=? WHERE ID=?");
+            //No le vamos a pasar el ID ya que hicimos que fuera autoincremental en la base de datos
+            preparedStatement.setString(1, odontologo.getApellido());
+            preparedStatement.setString(2, odontologo.getNombre());
+            preparedStatement.setInt(3, odontologo.getId());
+
+
+            //3 Ejecutar una sentencia SQL
+            preparedStatement.executeUpdate();
+            preparedStatement.close();
+
+        } catch (SQLException e) {
+            throw new RuntimeException();
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException();
+        }
+        return odontologo;
     }
 }

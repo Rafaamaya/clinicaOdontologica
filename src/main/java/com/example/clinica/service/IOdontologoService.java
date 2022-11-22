@@ -10,4 +10,5 @@ public interface IOdontologoService {
     Odontologo buscarOdontologo (int id);
     Odontologo guardarOdontologo(Odontologo odontologo);
     String eliminarOdontologo (Integer id);
+    Odontologo actualizar(Odontologo odontologo);
 }

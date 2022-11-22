@@ -20,6 +20,9 @@ public class Odontologo {
         this.matricula = matricula;
     }
 
+    public Odontologo() {
+    }
+
     public Integer getId() {
         return id;
     }
