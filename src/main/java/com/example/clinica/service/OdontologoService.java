@@ -18,8 +18,6 @@ public class OdontologoService implements IOdontologoService {
     public OdontologoService() {
 
     }
-
-
     public IDao<Odontologo> getOdontologoDao() {
         return odontologoDao;
     }

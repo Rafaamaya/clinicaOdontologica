@@ -10,6 +10,7 @@ public class Paciente {
     private String email;
     private String dni;
     private Date fecha;
+    private Domicilio domicilio;
 
 
     public Paciente(String apellido, String nombre, String dni, String email, Date fecha) {
