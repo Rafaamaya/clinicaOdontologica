@@ -5,6 +5,7 @@ import com.example.clinica.domain.Turno;
 import com.example.clinica.service.OdontologoService;
 import com.example.clinica.service.TurnoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -21,8 +22,8 @@ public class TurnoController {
 
     @GetMapping("/listar")
     @ResponseBody
-    public List<Turno> getListarOdontologo(){
-        return turnoService.listarTurno();
+    public ResponseEntity<List<Turno>>  getListarOdontologo(){
+        return ResponseEntity.ok(turnoService.listarTurno());
     }
 
 }

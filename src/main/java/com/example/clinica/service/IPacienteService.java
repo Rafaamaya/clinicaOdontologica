@@ -8,7 +8,7 @@ import java.util.List;
 public interface IPacienteService {
     List<Paciente> listadoPaciente();
 
-    Paciente buscarPaciente(String email);
+    Paciente buscarPaciente(Integer id);
 
     Paciente guardarOdontologo(Paciente paciente);
     String eliminarOdontologo (Integer id);

@@ -13,18 +13,18 @@ public class PacienteService implements IPacienteService {
 
     @Override
     public List<Paciente> listadoPaciente() {
-        return Arrays.asList(new Paciente("Amaya","Javier", "2942234","yo@gmail.com", new Date()),
-                new Paciente("Perez","Ramon","2942234","yo@gmail.com", new Date()),
-                new Paciente("Gonzalez","Teresa","2942234", "tere@gmail.com", new Date()));
+        return Arrays.asList(new Paciente(1,"Amaya","Javier", "2942234","yo@gmail.com", new Date()),
+                new Paciente(2,"Perez","Ramon","2942234","yo@gmail.com", new Date()),
+                new Paciente(3,"Gonzalez","Teresa","2942234", "tere@gmail.com", new Date()));
     }
 
     @Override
-    public Paciente buscarPaciente(String email) {
-        List<Paciente> pacienteList = Arrays.asList(new Paciente("Amaya","Javier","2942234","yo@gmail.com", new Date()),
-                new Paciente("Perez","Ramon","2942234", "yo@gmail.com", new Date()),
-                new Paciente("Gonzalez","Teresa","2942234", "tere@gmail.com", new Date()));
+    public Paciente buscarPaciente(Integer id) {
+        List<Paciente> pacienteList = Arrays.asList(new Paciente(1,"Amaya","Javier","2942234","yo@gmail.com", new Date()),
+                new Paciente(2,"Perez","Ramon","2942234", "yo@gmail.com", new Date()),
+                new Paciente(3,"Gonzalez","Teresa","2942234", "tere@gmail.com", new Date()));
         for (Paciente item: pacienteList) {
-            if(item.getEmail().equals(email)){
+            if(item.getId() == id){
                 return item;
             }
         }

@@ -4,6 +4,7 @@ import com.example.clinica.dao.IDao;
 import com.example.clinica.domain.Odontologo;
 import com.example.clinica.domain.Paciente;
 import com.example.clinica.domain.Turno;
+import com.example.clinica.service.PacienteService;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -15,10 +16,15 @@ public class TurnoDaoH2 implements IDao<Turno> {
 
     public TurnoDaoH2() {
         turnoList = new ArrayList<>();
+
+        //PacienteDaoH2 pacienteDaoH2 = new PacienteDaoH2();
+        //Paciente paciente = pacienteDaoH2.buscar(1);
+
+        PacienteService pacienteService = new PacienteService();
+        Paciente paciente = pacienteService.buscarPaciente(1);
+
         OdontologoDaoH2 odontologoDaoH2 = new OdontologoDaoH2();
-        PacienteDaoH2 pacienteDaoH2 = new PacienteDaoH2();
-        Paciente paciente = pacienteDaoH2.buscar(1);
-        Odontologo odontologo = odontologoDaoH2.buscar(1);
+        Odontologo odontologo = odontologoDaoH2.buscar(5);
         Turno turno = new Turno(1, paciente, odontologo, LocalDate.of(2022, 04, 29));
         turnoList.add(turno);
     }

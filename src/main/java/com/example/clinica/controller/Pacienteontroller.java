@@ -23,6 +23,6 @@ public class Pacienteontroller {
     }
     @GetMapping("/buscar")
     public Paciente getPaciente() {
-        return IPacienteService.buscarPaciente("tere@gmail.com");
+        return IPacienteService.buscarPaciente(1);
     }
 }

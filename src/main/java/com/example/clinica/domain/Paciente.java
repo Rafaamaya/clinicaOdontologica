@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class Paciente {
 
-    private Integer Id;
+    private Integer id;
     private String apellido;
     private String nombre;
     private String email;
@@ -13,7 +13,8 @@ public class Paciente {
     private Domicilio domicilio;
 
 
-    public Paciente(String apellido, String nombre, String dni, String email, Date fecha) {
+    public Paciente(Integer id,String apellido, String nombre, String dni, String email, Date fecha) {
+        this.id = id;
         this.apellido = apellido;
         this.nombre = nombre;
         this.dni = dni;
@@ -21,12 +22,15 @@ public class Paciente {
         this.fecha = fecha;
     }
 
+    public Paciente() {
+    }
+
     public Integer getId() {
-        return Id;
+        return id;
     }
 
     public void setId(Integer id) {
-        Id = id;
+        id = id;
     }
 
     public String getApellido() {
