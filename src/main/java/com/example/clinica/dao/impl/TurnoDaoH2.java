@@ -10,6 +10,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+//ESTA CLASE ESTA HARDCODEADA PARA SIMULAR LA CREACION DE TURNOS. EL log4j 1.2.17 SE INICIALIZA ACA O DIRECTAMENTE EN LA CLASE QUE LO USO?
+
 public class TurnoDaoH2 implements IDao<Turno> {
 
     private List<Turno> turnoList;
